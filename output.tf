@@ -25,3 +25,13 @@ output "kube_config" {
 output "host" {
     value = "${azurerm_kubernetes_cluster.k8s.kube_config.0.host}"
 }
+
+output "acr_username" {
+    value = "${azurerm_container_registry.acr.admin_username}"
+}
+output "acr_password" {
+    value = "${azurerm_container_registry.acr.admin_password}"
+}
+output "acr_url" {
+    value = "${azurerm_container_registry.acr.login_server}"
+}

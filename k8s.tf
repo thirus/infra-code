@@ -3,6 +3,14 @@ resource "azurerm_resource_group" "k8s" {
     location = "${var.location}"
 }
 
+resource "azurerm_container_registry" "acr" {
+  name                     = "${var.acr_name}"
+  resource_group_name      = "${azurerm_resource_group.k8s.name}"
+  location                 = "${azurerm_resource_group.k8s.location}"
+  sku                      = "Standard"
+  admin_enabled            = false
+}
+
 resource "azurerm_kubernetes_cluster" "k8s" {
     name                = "${var.cluster_name}"
     location            = "${azurerm_resource_group.k8s.location}"

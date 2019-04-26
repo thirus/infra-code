@@ -17,6 +17,10 @@ variable cluster_name {
     default = "refk8s"
 }
 
+variable acr_name {
+    default = "ts00acrtest"
+}
+
 variable resource_group_name {
     default = "azure-ref-k8s"
 }
